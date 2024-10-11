@@ -43,8 +43,8 @@ const MyEditor: React.FC = () => {
 
   return (
     <TinyMCEEditor
-      
-      apiKey="process.env.REACT_APP_TINYMCE_API_KEY"
+      apiKey='2gzadf10i29jky1uxr0jpne9em8rlqkskfpem2bt736efibw'
+     
       onInit={( editor) => (editorRef.current = editor)}
       initialValue="Welcome to TinyMCE!"
       init={{

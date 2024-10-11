@@ -1,9 +1,9 @@
-import React from 'react'
+
 import TinyEditor from './Page/TinyEditor'
 
-type Props = {}
 
-const App = (props: Props) => {
+
+const App = () => {
   return (
     <div className='text-red-800'>
       <TinyEditor />

@@ -1,7 +1,7 @@
 // src/utils/cleanContent.ts
 
 import sanitizeHtml from 'sanitize-html';
-import { SourceType } from './detectSource';
+import { SourceType } from '../utils/detectSource';
 
 /**
  * Cleans and sanitizes HTML content based on source and formatting preference.

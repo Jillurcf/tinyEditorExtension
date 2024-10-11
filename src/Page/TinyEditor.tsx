@@ -43,8 +43,9 @@ const MyEditor: React.FC = () => {
 
   return (
     <TinyMCEEditor
-      apiKey='2gzadf10i29jky1uxr0jpne9em8rlqkskfpem2bt736efibw'
-      onInit={(evt, editor) => (editorRef.current = editor)}
+      
+      apiKey="process.env.REACT_APP_TINYMCE_API_KEY"
+      onInit={( editor) => (editorRef.current = editor)}
       initialValue="Welcome to TinyMCE!"
       init={{
         height: 500,
@@ -66,7 +67,7 @@ const MyEditor: React.FC = () => {
           { value: 'First.Name', title: 'First Name' },
           { value: 'Email', title: 'Email' },
         ],
-        ai_request: (request: any, respondWith: any) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        ai_request: ( respondWith: any) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
         setup: (editor: any) => {
           // Register the custom paste plugin
           customPastePlugin(editor);

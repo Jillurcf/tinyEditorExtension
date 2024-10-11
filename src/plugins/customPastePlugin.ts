@@ -1,4 +1,4 @@
-// src/plugins/customPastePlugin.ts
+
 
 import { Editor } from 'tinymce';
 import detectSource from '../utils/detectSource';
@@ -11,15 +11,10 @@ import cleanContent from '../utils/cleanContent';
  */
 const customPastePlugin = (editor: Editor) => {
   editor.on('paste_preprocess', (e) => {
-    const clipboardData = e.clipboardData || window.clipboardData;
-    const html = clipboardData.getData('text/html');
-    const text = clipboardData.getData('text');
+    const html = e.content;
 
     if (html) {
       const source = detectSource(html);
-
-      // Prevent default paste action
-      e.preventDefault();
 
       // Open a dialog for user to choose formatting options
       editor.windowManager.open({
@@ -35,6 +30,8 @@ const customPastePlugin = (editor: Editor) => {
                 { text: 'Keep Formatting', value: 'keep' },
                 { text: 'Remove Formatting', value: 'remove' },
               ],
+              // Optional: Set default value based on source
+              // defaultValue: 'keep',
             },
           ],
         },
@@ -54,10 +51,13 @@ const customPastePlugin = (editor: Editor) => {
           const keepFormatting = data.formatting === 'keep';
           const cleanedContent = cleanContent(html, source, keepFormatting);
           api.close();
-          // Insert the cleaned content
-          editor.insertContent(cleanedContent || text);
+          // Modify the content that will be inserted into the editor
+          e.content = cleanedContent || '';
         },
       });
+
+      // Prevent the default paste action to allow custom handling
+      e.preventDefault();
     }
   });
 };

@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/page/tinyeditor.tsx","./src/components/editorconfig.tsx","./src/plugins/custompasteplugin.ts","./src/types/sanitize-html.d.ts","./src/utils/cleancontent.ts","./src/utils/detectsource.ts"],"version":"5.6.3"}

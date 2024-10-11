@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true, // Enable project references
+    "typeRoots": ["./node_modules/@types", "./src/types"], // Ensure custom types are included
+    "moduleResolution": "node", // Common for TypeScript in Node.js projects
+    "esModuleInterop": true,    // Allows default imports from non-ES modules like `sanitize-html`
+    "skipLibCheck": true        // Skips type checking for third-party libraries
+  },
+  "files": [],                  // Files section can be left empty if handled by references
+  "references": [
+    { "path": "./tsconfig.app.json" },  // Application-related TypeScript config
+    { "path": "./tsconfig.node.json" }  // Node-related TypeScript config
+  ]
+}
